@@ -1,0 +1,102 @@
+---
+title: "Viridis Color Palettes"
+author: "Your name"
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+```{r setup, include = FALSE}
+# Set global knit options (optional)
+knitr::opts_chunk$set(echo = FALSE)
+
+# load packages
+library(tidyverse)
+library(viridis)
+library(here)
+library(maps)
+library(sf)
+
+# load data and functions
+source(here("R/plot_temps.R"))
+```
+
+<!--Each second level header begins a new slide-->
+## Viridis
+
+The [viridis](https://sjmgarnier.github.io/viridis/) package provides eight eye-catching color palettes to use in data visualizations:
+
+- magma
+- inferno
+- plasma
+- viridis
+- cividis
+- rocket
+- mako
+- turbo
+
+## Optimized for perception
+
+According to the virids documentation, the palettes:
+
+> are designed to improve graph readability for readers with common forms of color blindness and/or color vision deficiency. The color maps are also perceptually-uniform, both in regular form and also when converted to black-and-white for printing.
+
+## Magma
+
+```{r magmas}
+plot_temps("magma", title = FALSE)
+```
+
+
+## Inferno
+
+```{r inferno}
+plot_temps("inferno", title = FALSE)
+```
+
+## Plasma
+
+```{r plasma}
+plot_temps("plasma", title = FALSE)
+```
+
+## Viridis
+
+```{r viridis}
+plot_temps("viridis", title = FALSE)
+```
+
+## Cividis
+
+```{r cividis}
+plot_temps("cividis", title = FALSE)
+```
+
+## Rocket
+
+```{r rocket}
+plot_temps("rocket", title = FALSE)
+```
+
+## Mako
+
+```{r mako}
+plot_temps("mako", title = FALSE)
+```
+
+## Turbo
+
+```{r turbo}
+plot_temps("turbo", title = FALSE)
+```
+
+## Usage
+
+To use a viridis palette in your plot, include `scale_*_viridis()` in your ggplot2 call:
+
+```{r eval = FALSE, echo = TRUE}
+mpg |>  
+  ggplot(aes(x = displ, y = cty, color = hwy)) +
+    geom_point() +
+    scale_color_viridis(option = "A")
+```
+
